@@ -2,6 +2,7 @@ import logging
 import sqlite3
 import os
 from datetime import timedelta
+from telegram.ext import MessageHandler, filters
 
 from telegram import (
     Update,
@@ -319,8 +320,7 @@ def main():
     app.add_handler(CommandHandler("info", info))
     app.add_handler(CommandHandler("stats", stats))
 
-    app.add_handler(CommandHandler("log", log_message))
-    app.add_handler(CommandHandler("message", log_message))
+    app.add_handler(MessageHandler(filters.ALL, log_message))
 
     app.run_polling()
 
