@@ -1,5 +1,6 @@
 import logging
 import sqlite3
+import os
 from datetime import timedelta
 
 from telegram import (
@@ -14,7 +15,7 @@ from telegram.ext import (
 )
 
 # ================= CONFIG =================
-BOT_TOKEN = "PUT_YOUR_BOT_TOKEN_HERE"
+BOT_TOKEN = os.getenv("BOT_TOKEN")
 DEFAULT_WARN_LIMIT = 3
 
 logging.basicConfig(level=logging.INFO)
